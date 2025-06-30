@@ -1,0 +1,32 @@
+.cards {
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
+  width: 100%;
+}
+.card {
+  width: 100%;
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 15px;
+  &:first-child {
+    background-color: #201f24;
+    color: #fff;
+  }
+}
+.cardTitle {
+  font-size: 14px;
+}
+.cardValue {
+  font-size: 32px;
+  font-weight: 700;
+  padding-top: 15px;
+}
+
+.main {
+  padding-top: 30px;
+  display: grid;
+  grid-template-columns: 1fr 450px;
+  gap: 25px;
+  align-items: flex-start;
+}

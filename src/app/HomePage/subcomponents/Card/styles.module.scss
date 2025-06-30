@@ -1,0 +1,26 @@
+.root {
+  border-radius: 15px;
+  background-color: #fff;
+  padding: 35px;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+.title {
+  font-weight: 600;
+  font-size: 20px;
+}
+.link {
+  color: #606060;
+  font-size: 14px;
+
+  display: flex;
+  gap: 10px;
+  align-items: center;
+
+  svg {
+    width: 15px;
+    fill: #606060;
+  }
+}
