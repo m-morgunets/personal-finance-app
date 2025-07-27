@@ -1,5 +1,10 @@
 import { AppRoutePage } from "router/types";
-import { MainIcon, ChartIcon, ArrowsIcon, SavingsIcon } from "../components/NavigationSidebar/assets";
+import {
+  MainIcon,
+  ChartIcon,
+  ArrowsIcon,
+  SavingsIcon,
+} from "components/NavigationSidebar/assets";
 import { FunctionComponent, SVGProps } from "react";
 import { ROUTE } from "router/routes";
 

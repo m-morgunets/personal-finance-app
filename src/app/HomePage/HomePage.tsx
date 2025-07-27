@@ -1,10 +1,5 @@
 import { PageContainer } from "containers";
 import s from "./styles.module.scss";
-import { NavLink } from "react-router-dom";
-import { ROUTE } from "router/routes";
-import { AppRoutePage } from "router/types";
-import { ArrowRight } from "./assets";
-import { PieChart, Pie, Cell } from "recharts";
 import { Budgets, Operations } from "./subcomponents";
 
 export const HomePage = () => {

@@ -1,7 +1,7 @@
 import s from "./styles.module.scss";
-import { MENU_CONFIG } from "../../config/menu";
 import { NavLink } from "react-router-dom";
 import clsx from "clsx";
+import { MENU_CONFIG } from "shared/config/menu";
 
 export const NavigationSidebar = () => {
   return (

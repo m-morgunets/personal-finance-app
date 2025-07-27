@@ -1,0 +1,89 @@
+.controls {
+  display: flex;
+  align-items: center;
+  margin-bottom: 32px;
+  gap: 24px;
+}
+
+.filter {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.filterSelect {
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.addButton {
+  background: #201f24;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.table {
+  border-radius: 15px;
+  background-color: #fff;
+  padding: 15px 35px;
+  
+  flex: 1;
+  overflow-y: auto;
+
+  table {
+    width: 100%;
+  }
+  tr {
+    height: 60px;
+    vertical-align: middle;
+    border-top: 1px solid #eee;
+  }
+  th {
+    font-weight: 700;
+    font-size: 18px;
+  }
+  
+  thead tr {
+    border: none;
+  }
+
+  th,
+  td {
+    text-align: center;
+    vertical-align: middle;
+    height: inherit;
+    &:first-child {
+      text-align: left;
+    }
+    &:last-child {
+      text-align: right;
+    }
+  }
+}
+
+.tableDate {
+  text-transform: capitalize;
+}
+.tableAmount {
+  font-weight: 700;
+}
+.tableCategory {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.categoryImage {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

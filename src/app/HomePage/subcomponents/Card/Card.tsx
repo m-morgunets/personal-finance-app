@@ -1,7 +1,7 @@
 import { PropsWithChildren } from "react";
 import { NavLink } from "react-router-dom";
 import s from "./styles.module.scss";
-import { ArrowRight } from "./assets";
+import { ArrowRightIcon } from "./assets";
 import { CardProps } from "./types";
 
 export const Card = ({ title, linkTo, linkText, children }: CardProps) => {
@@ -11,7 +11,7 @@ export const Card = ({ title, linkTo, linkText, children }: CardProps) => {
         <div className={s.title}>{title}</div>
         <NavLink to={linkTo} className={s.link}>
           {linkText}
-          <ArrowRight />
+          <ArrowRightIcon />
         </NavLink>
       </div>
       {children}
