@@ -1,9 +1,0 @@
-export { ReactComponent as ProductsIcon } from "./products.svg";
-export { ReactComponent as PersonIcon } from "./person.svg";
-export { ReactComponent as СonnectionIcon } from "./connection.svg";
-export { ReactComponent as HouseIcon } from "./house.svg";
-export { ReactComponent as MedicineIcon } from "./medicine.svg";
-export { ReactComponent as TransportIcon } from "./transport.svg";
-export { ReactComponent as MealIcon } from "./meal.svg";
-export { ReactComponent as ClothesIcon } from "./clothes.svg";
-export { ReactComponent as GamesIcon } from "./games.svg";
