@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -8,12 +10,8 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import React, { useState } from "react";
-import { FormDialog } from "./FormDialog";
-import { DataTable } from "@/shared/types/transactions";
-
-interface AddButtonProps {
-  addTransaction: (data: DataTable) => void;
-}
+import { FormDialog } from "../FormDialog";
+import { AddButtonProps } from "./types";
 
 export const AddButton = ({ addTransaction }: AddButtonProps) => {
   const [open, setOpen] = useState(false);

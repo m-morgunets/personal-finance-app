@@ -1,7 +1,5 @@
-export default function Budgets() {
-  return (
-    <>
-      <header className="pb-10 text-3xl font-bold">Бюджеты</header>
-    </>
-  );
+import { Budgets } from "@/components/pages";
+
+export default function Page() {
+  return <Budgets />;
 }

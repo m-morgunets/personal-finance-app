@@ -19,7 +19,6 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { CATEGORIES, DATA } from "@/shared/constants/transactions";
 import {
   ColumnFiltersState,
   flexRender,
@@ -29,9 +28,11 @@ import {
   SortingState,
   useReactTable,
 } from "@tanstack/react-table";
-import { DataTable } from "@/shared/types/transactions";
 import { buildColumns } from "./columns";
-import { AddButton } from "./subcomponents";
+import { AddButton } from "../AddButton";
+import { DataTable } from "../../types";
+import { DATA } from "../../constants";
+import { Filters } from "../Filters";
 
 export const TransactionsTable = () => {
   const [sorting, setSorting] = useState<SortingState>([
@@ -75,56 +76,11 @@ export const TransactionsTable = () => {
     return sum + (row.getValue("amount") as number);
   }, 0);
 
-  console.log(total);
-  
-
   return (
     <>
       <div className="flex items-center gap-6 mb-8">
         <AddButton addTransaction={addTransaction} />
-
-        <div className="flex items-center gap-4">
-          <Select
-            value={
-              (table.getColumn("category")?.getFilterValue() as string) ?? ""
-            }
-            onValueChange={(data) =>
-              table.getColumn("category")?.setFilterValue(data)
-            }
-          >
-            <SelectTrigger className="w-[200px]">
-              <SelectValue placeholder="Все категории" />
-            </SelectTrigger>
-            <SelectContent>
-              {Object.entries(CATEGORIES).map(([key, { name }]) => (
-                <SelectItem key={key} value={key}>
-                  {name}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-
-          <Select
-            value={(table.getColumn("date")?.getFilterValue() as string) ?? ""}
-            onValueChange={(data) =>
-              table.getColumn("date")?.setFilterValue(data)
-            }
-          >
-            <SelectTrigger className="w-[200px]">
-              <SelectValue placeholder="Все даты" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="day">День</SelectItem>
-              <SelectItem value="week">Неделя</SelectItem>
-              <SelectItem value="month">Месяц</SelectItem>
-              <SelectItem value="year">Год</SelectItem>
-            </SelectContent>
-          </Select>
-
-          <Button variant="outline" onClick={() => setColumnFilters([])}>
-            Сброс
-          </Button>
-        </div>
+        <Filters table={table} setColumnFilters={setColumnFilters} />
       </div>
 
       <div className="bg-white flex-1 overflow-auto relative rounded-[15px] max-h-max">

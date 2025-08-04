@@ -1,10 +1,5 @@
-import { TransactionsTable } from "@/components/shared/TransactionsTable";
+import { Transactions } from "@/components/pages";
 
-export default function Transactions() {
-  return (
-    <>
-      <header className="pb-10 text-3xl font-bold">Операции</header>
-      <TransactionsTable />
-    </>
-  );
+export default function Page() {
+  return <Transactions />;
 }

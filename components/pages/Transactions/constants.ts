@@ -9,7 +9,7 @@ import ClothesIcon from "@/public/clothes.svg";
 import GamesIcon from "@/public/games.svg";
 
 import { v4 as uuidv4 } from "uuid";
-import { Categories, DataTable } from "@/shared/types/transactions";
+import { Categories, DataTable } from "./types";
 
 export const DATA: DataTable[] = [
   {

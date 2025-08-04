@@ -3,7 +3,7 @@
 import { Cell, Pie, PieChart } from "recharts";
 import { Box } from "../Box";
 
-export const OverviewBudgets = () => {
+export const Budgets = () => {
   const list = [
     { name: "Развлечения", amount: 50, color: "#277C77" },
     { name: "Платежки", amount: 500, color: "#81C9D7" },

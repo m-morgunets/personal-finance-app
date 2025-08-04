@@ -1,9 +1,10 @@
-import { CATEGORIES, DATA } from "@/shared/constants/transactions";
-import { formatDate } from "@/shared/utils/formatDate";
-import { Box } from "../Box";
-import Image from "next/image";
 
-export const OverviewTransactions = () => {
+import { formatDate } from "@/shared/utils/formatDate";
+import Image from "next/image";
+import { Box } from "../Box";
+import { CATEGORIES, DATA } from "@/components/pages/Transactions/constants";
+
+export const Transactions = () => {
   return (
     <Box title="Операции" linkText="Посмотреть всё" linkTo={"/transactions"}>
       <div className="mt-5">

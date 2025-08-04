@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
@@ -16,16 +18,10 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { CATEGORIES } from "@/shared/constants/transactions";
 import { ChevronDownIcon } from "lucide-react";
-import { DataTable } from "@/shared/types/transactions";
 import { v4 as uuidv4 } from "uuid";
-
-interface FormDialogProps {
-  setOpen: (isOpen: boolean) => void;
-  onSubmit: (data: DataTable) => void;
-  data?: DataTable;
-}
+import { FormDialogProps } from "./types";
+import { CATEGORIES } from "../../constants";
 
 export const FormDialog = ({ setOpen, onSubmit, data }: FormDialogProps) => {
   const [openPopover, setOpenPopover] = useState(false);
@@ -118,6 +114,7 @@ export const FormDialog = ({ setOpen, onSubmit, data }: FormDialogProps) => {
           </Popover>
         </div>
       </div>
+
       <DialogFooter>
         <DialogClose asChild>
           <Button variant="outline">Закрыть</Button>
