@@ -28,7 +28,7 @@ export const buildColumns = (
               style={{ backgroundColor: category?.color }}
             >
               <Image
-                src={category?.iconSrc}
+                src={category?.iconSrc ?? ""}
                 width={20}
                 height={20}
                 alt="name"

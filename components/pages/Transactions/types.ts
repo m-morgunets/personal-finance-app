@@ -9,7 +9,7 @@ export interface DataTable {
 export interface Category {
   key: string;
   name: string;
-  iconSrc: any;
+  iconSrc: string;
   color: string;
   budget?: number;
 }

@@ -22,7 +22,7 @@ export const Transactions = () => {
                   style={{ backgroundColor: category?.color }}
                 >
                   <Image
-                    src={category?.iconSrc}
+                    src={category?.iconSrc ?? ''}
                     alt={category?.name ?? ""}
                     width={20}
                     height={20}
