@@ -6,10 +6,10 @@ export interface DataTable {
   amount: number;
 }
 
-export interface Categories {
-  [key: string]: {
-    name: string;
-    iconSrc: any;
-    color: string;
-  };
+export interface Category {
+  key: string;
+  name: string;
+  iconSrc: any;
+  color: string;
+  budget?: number;
 }

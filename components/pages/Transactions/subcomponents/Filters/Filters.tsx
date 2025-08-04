@@ -23,9 +23,9 @@ export const Filters = ({ table, setColumnFilters }: FiltersProps) => {
           <SelectValue placeholder="Все категории" />
         </SelectTrigger>
         <SelectContent>
-          {Object.entries(CATEGORIES).map(([key, { name }]) => (
-            <SelectItem key={key} value={key}>
-              {name}
+          {CATEGORIES.map((item) => (
+            <SelectItem key={item.key} value={item.key}>
+              {item.name}
             </SelectItem>
           ))}
         </SelectContent>

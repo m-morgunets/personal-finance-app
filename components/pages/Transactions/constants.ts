@@ -9,7 +9,7 @@ import ClothesIcon from "@/public/clothes.svg";
 import GamesIcon from "@/public/games.svg";
 
 import { v4 as uuidv4 } from "uuid";
-import { Categories, DataTable } from "./types";
+import { Category, DataTable } from "./types";
 
 export const DATA: DataTable[] = [
   {
@@ -254,14 +254,61 @@ export const DATA: DataTable[] = [
   },
 ];
 
-export const CATEGORIES: Categories = {
-  meal: { name: "Кафе", iconSrc: MealIcon, color: "#277C77" },
-  products: { name: "Продукты", iconSrc: ProductsIcon, color: "#916751" },
-  person: { name: "Перевод", iconSrc: PersonIcon, color: "#82C8D7" },
-  connection: { name: "Связь", iconSrc: СonnectionIcon, color: "#CCB267" },
-  house: { name: "Дом", iconSrc: HouseIcon, color: "#8289D7" },
-  medicine: { name: "Медицина", iconSrc: MedicineIcon, color: "#F0ABAB" },
-  transport: { name: "Транспорт", iconSrc: TransportIcon, color: "#313867" },
-  clothes: { name: "Одежда", iconSrc: ClothesIcon, color: "#6ED571" },
-  games: { name: "Развлечения", iconSrc: GamesIcon, color: "#625F70" },
-};
+export const CATEGORIES: Category[] = [
+  {
+    key: "meal",
+    name: "Кафе",
+    iconSrc: MealIcon,
+    color: "#277C77",
+  },
+  {
+    key: "products",
+    name: "Продукты",
+    iconSrc: ProductsIcon,
+    color: "#916751",
+    budget: 15000,
+  },
+  {
+    key: "person",
+    name: "Перевод",
+    iconSrc: PersonIcon,
+    color: "#82C8D7",
+  },
+  {
+    key: "connection",
+    name: "Связь",
+    iconSrc: СonnectionIcon,
+    color: "#CCB267",
+  },
+  {
+    key: "house",
+    name: "Дом",
+    iconSrc: HouseIcon,
+    color: "#8289D7",
+  },
+  {
+    key: "medicine",
+    name: "Медицина",
+    iconSrc: MedicineIcon,
+    color: "#F0ABAB",
+  },
+  {
+    key: "transport",
+    name: "Транспорт",
+    iconSrc: TransportIcon,
+    color: "#313867",
+  },
+  {
+    key: "clothes",
+    name: "Одежда",
+    iconSrc: ClothesIcon,
+    color: "#6ED571",
+  },
+  {
+    key: "games",
+    name: "Развлечения",
+    iconSrc: GamesIcon,
+    color: "#625F70",
+    budget: 4000,
+  },
+];

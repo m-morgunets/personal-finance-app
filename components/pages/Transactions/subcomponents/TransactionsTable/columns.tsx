@@ -19,17 +19,22 @@ export const buildColumns = (
       header: () => <div className="text-left pl-9">Категория</div>,
       cell: ({ row }) => {
         const categoryName = row.getValue("category") as string;
-        const category = CATEGORIES[categoryName];
+        const category = CATEGORIES.find((cat) => cat.key === categoryName);
 
         return (
           <div className="text-left flex items-center gap-5 pl-9">
             <div
               className="w-10 h-10 flex items-center justify-center rounded-[100%]"
-              style={{ backgroundColor: category.color }}
+              style={{ backgroundColor: category?.color }}
             >
-              <Image src={category.iconSrc} width={20} height={20} alt="name" />
+              <Image
+                src={category?.iconSrc}
+                width={20}
+                height={20}
+                alt="name"
+              />
             </div>
-            {category.name}
+            {category?.name}
           </div>
         );
       },

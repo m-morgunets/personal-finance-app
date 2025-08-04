@@ -30,7 +30,7 @@ export const FormDialog = ({ setOpen, onSubmit, data }: FormDialogProps) => {
   );
 
   const [changedName, setChangedName] = useState(data?.name ?? "");
-  const [changedAmount, setChangedAmount] = useState(data?.amount ?? 0);
+  const [changedAmount, setChangedAmount] = useState(String(data?.amount ?? ""));
   const [changedCategory, setChangedCategory] = useState(data?.category ?? "");
 
   const submitHandler = () => {
@@ -38,7 +38,7 @@ export const FormDialog = ({ setOpen, onSubmit, data }: FormDialogProps) => {
       id: data?.id ?? uuidv4(),
       date: changedDate || new Date(),
       name: changedName,
-      amount: changedAmount,
+      amount: Number(changedAmount),
       category: changedCategory,
     });
     setOpen(false);
@@ -60,9 +60,12 @@ export const FormDialog = ({ setOpen, onSubmit, data }: FormDialogProps) => {
           <Label htmlFor="amount">Сумма (₽)</Label>
           <Input
             id="amount"
+            type="number"
             name="amount"
             value={changedAmount}
-            onChange={(e) => setChangedAmount(Number(e.target.value))}
+            onChange={(e) => {
+              setChangedAmount(e.target.value);
+            }}
           />
         </div>
 
@@ -73,9 +76,9 @@ export const FormDialog = ({ setOpen, onSubmit, data }: FormDialogProps) => {
               <SelectValue placeholder="Все категории" />
             </SelectTrigger>
             <SelectContent>
-              {Object.entries(CATEGORIES).map(([key, { name }]) => (
-                <SelectItem key={key} value={key}>
-                  {name}
+              {CATEGORIES.map((item) => (
+                <SelectItem key={item.key} value={item.key}>
+                  {item.name}
                 </SelectItem>
               ))}
             </SelectContent>
