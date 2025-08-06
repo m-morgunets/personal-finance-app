@@ -19,25 +19,26 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { ChevronDownIcon } from "lucide-react";
-import { v4 as uuidv4 } from "uuid";
 import { FormDialogProps } from "./types";
 import { CATEGORIES } from "../../constants";
 
 export const FormDialog = ({ setOpen, onSubmit, data }: FormDialogProps) => {
   const [openPopover, setOpenPopover] = useState(false);
   const [changedDate, setChangedDate] = useState<Date | undefined>(
-    data?.date ?? new Date()
+    data ? new Date(data.date) : new Date()
   );
 
-  const [changedName, setChangedName] = useState(data?.name ?? "");
-  const [changedAmount, setChangedAmount] = useState(String(data?.amount ?? ""));
+  const [changedName, setChangedName] = useState(data?.title ?? "");
+  const [changedAmount, setChangedAmount] = useState(
+    String(data?.amount ?? "")
+  );
   const [changedCategory, setChangedCategory] = useState(data?.category ?? "");
 
   const submitHandler = () => {
     onSubmit({
-      id: data?.id ?? uuidv4(),
+      id: data?.id,
       date: changedDate || new Date(),
-      name: changedName,
+      title: changedName,
       amount: Number(changedAmount),
       category: changedCategory,
     });

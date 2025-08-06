@@ -28,7 +28,7 @@ export const Transactions = () => {
                     height={20}
                   />
                 </div>
-                <div className="font-bold text-sm">{item.name}</div>
+                <div className="font-bold text-sm">{item.title}</div>
               </div>
               <div className="text-right">
                 <div

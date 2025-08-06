@@ -11,10 +11,11 @@ import {
 } from "@/components/ui/dialog";
 import React, { useState } from "react";
 import { FormDialog } from "../FormDialog";
-import { AddButtonProps } from "./types";
+import { useCreateTransaction } from "@/api/transactions";
 
-export const AddButton = ({ addTransaction }: AddButtonProps) => {
+export const CreateButton = () => {
   const [open, setOpen] = useState(false);
+  const { mutateAsync: createTransaction } = useCreateTransaction();
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
@@ -30,7 +31,7 @@ export const AddButton = ({ addTransaction }: AddButtonProps) => {
           </DialogDescription>
         </DialogHeader>
 
-        <FormDialog setOpen={setOpen} onSubmit={addTransaction} />
+        <FormDialog setOpen={setOpen} onSubmit={createTransaction} />
       </DialogContent>
     </Dialog>
   );

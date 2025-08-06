@@ -1,7 +1,5 @@
-import { DataTable } from "../../types";
+import { TransactionDto, TransactionRequest } from "@/api/transactions.schemas";
 
 export interface TableActionsProps {
-  rowData: DataTable;
-  deleteTransaction: (id: string) => void;
-  editTransaction: (data: DataTable) => void;
+  rowData: TransactionDto;
 }

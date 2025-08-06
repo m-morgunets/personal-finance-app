@@ -1,7 +1,7 @@
 import { ColumnFiltersState, Table } from "@tanstack/react-table";
-import { DataTable } from "../../types";
+import { TransactionDto } from "@/api/transactions.schemas";
 
 export interface FiltersProps {
-  table: Table<DataTable>;
+  table: Table<TransactionDto>;
   setColumnFilters: (val: ColumnFiltersState) => void;
 }

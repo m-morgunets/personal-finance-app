@@ -1,7 +1,7 @@
-import { DataTable } from "../../types";
+import { TransactionDto, TransactionRequest } from "@/api/transactions.schemas";
 
 export interface FormDialogProps {
   setOpen: (isOpen: boolean) => void;
-  onSubmit: (data: DataTable) => void;
-  data?: DataTable;
+  onSubmit: (data: TransactionRequest) => void;
+  data?: TransactionDto;
 }

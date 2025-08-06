@@ -1,4 +1,5 @@
 import { NavigationSidebar } from "@/components/shared";
+import { Providers } from "./providers";
 
 export default function RootLayout({
   children,
@@ -6,9 +7,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="flex">
-      <NavigationSidebar />
-      <div className="p-10 flex flex-col h-screen flex-auto">{children}</div>
-    </div>
+    <Providers>
+      <div className="flex">
+        <NavigationSidebar />
+        <div className="p-10 flex flex-col h-screen flex-auto">{children}</div>
+      </div>
+    </Providers>
   );
 }

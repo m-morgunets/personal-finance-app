@@ -26,14 +26,16 @@ import {
 import { MoreHorizontal } from "lucide-react";
 import { TableActionsProps } from "./types";
 import { FormDialog } from "../FormDialog";
+import { useDeleteTransaction, useUpdateTransaction } from "@/api/transactions";
 
 export const TableActions = ({
   rowData,
-  deleteTransaction,
-  editTransaction,
 }: TableActionsProps) => {
   const [openAlert, setOpenAlert] = useState(false);
   const [openDialog, setOpenDialog] = useState(false);
+
+  const { mutateAsync: deleteTransaction } = useDeleteTransaction();
+  const { mutateAsync: updateTransaction } = useUpdateTransaction();
   return (
     <>
       <DropdownMenu>
@@ -90,7 +92,7 @@ export const TableActions = ({
 
           <FormDialog
             setOpen={setOpenDialog}
-            onSubmit={(data) => editTransaction(data)}
+            onSubmit={(data) => updateTransaction(data)}
             data={rowData}
           />
         </DialogContent>

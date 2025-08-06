@@ -20,11 +20,15 @@ import {
   SortingState,
   useReactTable,
 } from "@tanstack/react-table";
-import { buildColumns } from "./columns";
-import { AddButton } from "../AddButton";
-import { DataTable } from "../../types";
-import { DATA } from "../../constants";
+import { columns } from "./columns";
+import { CreateButton } from "../CreateButton";
 import { Filters } from "../Filters";
+import {
+  useDeleteTransaction,
+  useTransactionsTable,
+  useUpdateTransaction,
+} from "@/api/transactions";
+import { TransactionRequest, TransactionDto } from "@/api/transactions.schemas";
 
 export const TransactionsTable = () => {
   const [sorting, setSorting] = useState<SortingState>([
@@ -35,24 +39,14 @@ export const TransactionsTable = () => {
   ]);
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
 
-  const addTransaction = (data: DataTable) => {
-    setData((prev) => [...prev, { ...data }]);
-  };
-  const deleteTransaction = (id: string) => {
-    setData((prev) => prev.filter((item) => item.id !== id));
-  };
-  const editTransaction = (data: DataTable) => {
-    setData((prev) =>
-      prev.map((item) => (item.id === data.id ? { ...data } : item))
-    );
-  };
+  const { data } = useTransactionsTable();
 
-  const [data, setData] = useState(DATA);
-  const columns = buildColumns(deleteTransaction, editTransaction);
-
-  const table = useReactTable<DataTable>({
+  const table = useReactTable<TransactionDto>({
     data,
     columns,
+    defaultColumn: {
+      size: undefined,
+    },
     onSortingChange: setSorting,
     onColumnFiltersChange: setColumnFilters,
     getCoreRowModel: getCoreRowModel(),
@@ -71,7 +65,7 @@ export const TransactionsTable = () => {
   return (
     <>
       <div className="flex items-center gap-6 mb-8">
-        <AddButton addTransaction={addTransaction} />
+        <CreateButton />
         <Filters table={table} setColumnFilters={setColumnFilters} />
       </div>
 
@@ -85,6 +79,7 @@ export const TransactionsTable = () => {
                     <TableHead
                       key={header.id}
                       className="sticky top-0 bg-background z-10"
+                      style={{ width: header.column.columnDef.size }}
                     >
                       {header.isPlaceholder
                         ? null
@@ -108,10 +103,7 @@ export const TransactionsTable = () => {
                   data-state={row.getIsSelected() && "selected"}
                 >
                   {row.getVisibleCells().map((cell) => (
-                    <TableCell
-                      key={cell.id}
-                      className={`w-[${cell.column.getSize()}px]`}
-                    >
+                    <TableCell key={cell.id}>
                       {flexRender(
                         cell.column.columnDef.cell,
                         cell.getContext()
