@@ -23,12 +23,8 @@ import {
 import { columns } from "./columns";
 import { CreateButton } from "../CreateButton";
 import { Filters } from "../Filters";
-import {
-  useDeleteTransaction,
-  useTransactionsTable,
-  useUpdateTransaction,
-} from "@/api/transactions";
-import { TransactionRequest, TransactionDto } from "@/api/transactions.schemas";
+import { useTransactionsTable } from "@/shared/api/transactions";
+import { TransactionDto } from "@/shared/api/transactions.schemas";
 
 export const TransactionsTable = () => {
   const [sorting, setSorting] = useState<SortingState>([

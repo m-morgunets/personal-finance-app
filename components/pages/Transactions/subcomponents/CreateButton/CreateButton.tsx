@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/dialog";
 import React, { useState } from "react";
 import { FormDialog } from "../FormDialog";
-import { useCreateTransaction } from "@/api/transactions";
+import { useCreateTransaction } from "@/shared/api/transactions";
 
 export const CreateButton = () => {
   const [open, setOpen] = useState(false);

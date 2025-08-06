@@ -1,4 +1,4 @@
-import { TransactionDto, TransactionRequest } from "@/api/transactions.schemas";
+import { TransactionDto } from "@/shared/api/transactions.schemas";
 
 export interface TableActionsProps {
   rowData: TransactionDto;

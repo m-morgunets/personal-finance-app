@@ -26,7 +26,7 @@ import {
 import { MoreHorizontal } from "lucide-react";
 import { TableActionsProps } from "./types";
 import { FormDialog } from "../FormDialog";
-import { useDeleteTransaction, useUpdateTransaction } from "@/api/transactions";
+import { useDeleteTransaction, useUpdateTransaction } from "@/shared/api/transactions";
 
 export const TableActions = ({
   rowData,

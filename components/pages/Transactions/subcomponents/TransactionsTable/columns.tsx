@@ -7,7 +7,7 @@ import { DateRange } from "./types";
 import { isInRange } from "./utils";
 import { CATEGORIES } from "../../constants";
 import { TableActions } from "../TableActions";
-import { TransactionDto } from "@/api/transactions.schemas";
+import { TransactionDto } from "@/shared/api/transactions.schemas";
 
 export const columns: ColumnDef<TransactionDto>[] = [
   {
