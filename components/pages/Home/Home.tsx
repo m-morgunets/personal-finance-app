@@ -2,13 +2,18 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import React from "react";
 import MainSvg from "@/public/main.svg";
+import Link from "next/link";
 
 export const Home = () => {
   return (
     <div className="py-5 px-10">
       <div className="flex gap-3 justify-end">
-        <Button variant={"outline"}>Войти</Button>
-        <Button>Регистрация</Button>
+        <Link href={"/login"}>
+          <Button variant={"outline"}>Войти</Button>
+        </Link>
+        <Link href={"/signup"}>
+          <Button>Регистрация</Button>
+        </Link>
       </div>
 
       <div className="pt-[180px] flex justify-center items-center gap-20">
@@ -23,9 +28,11 @@ export const Home = () => {
             <br />
             Простой интерфейс — мощный результат.
           </div>
-          <Button className="mt-10" size={"lg"}>
-            Начать сейчас
-          </Button>
+          <Link href={"/signup"}>
+            <Button className="mt-10" size={"lg"}>
+              Начать сейчас
+            </Button>
+          </Link>
         </div>
         <Image src={MainSvg} alt="Картинка" width={520} />
       </div>

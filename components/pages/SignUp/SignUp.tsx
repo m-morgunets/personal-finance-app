@@ -1,33 +1,45 @@
 "use client";
 
+import { AuthorizationCard, FormInput } from "@/components/shared";
 import { Button } from "@/components/ui/button";
+import {
+  formRegisterSchema,
+  FormRegisterValues,
+} from "@/shared/types/form.schemas";
+import { zodResolver } from "@hookform/resolvers/zod";
 import React from "react";
 import { FormProvider, useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { AuthorizationCard, FormInput } from "@/components/shared";
-import { formLoginSchema, FormLoginValues } from "@/shared/types/form.schemas";
 
-export const LogIn = () => {
-  const form = useForm<FormLoginValues>({
-    resolver: zodResolver(formLoginSchema),
+export const SignUp = () => {
+  const form = useForm<FormRegisterValues>({
+    resolver: zodResolver(formRegisterSchema),
     defaultValues: {
       email: "",
+      fullName: "",
       password: "",
+      confirmPassword: "",
     },
   });
 
   return (
     <div className="h-screen flex items-center justify-center">
-      <AuthorizationCard type="login">
+      <AuthorizationCard type="signup">
         <FormProvider {...form}>
           <form
             className="flex flex-col gap-5"
             onSubmit={form.handleSubmit(() => {})}
           >
             <FormInput name="email" label="E-Mail" required />
+            <FormInput name="fullName" label="Полное имя" required />
             <FormInput
               name="password"
               label="Пароль"
+              type="password"
+              required
+            />
+            <FormInput
+              name="confirmPassword"
+              label="Подтвердите пароль"
               type="password"
               required
             />
