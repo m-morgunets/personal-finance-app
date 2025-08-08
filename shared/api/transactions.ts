@@ -38,8 +38,7 @@ export function useDeleteTransaction() {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: (id: string) =>
-      axios.delete("/api/transactions", { data: { id } }),
+    mutationFn: (id: string) => axios.delete(`/api/transactions/${id}`),
     onSuccess: () => {
       queryClient.invalidateQueries({
         queryKey: ["transactionsTable"],
@@ -53,7 +52,7 @@ export function useUpdateTransaction() {
 
   return useMutation({
     mutationFn: (body: TransactionRequest) =>
-      axios.patch("/api/transactions", body),
+      axios.patch(`/api/transactions/${body.id}`, body),
     onSuccess: () => {
       queryClient.invalidateQueries({
         queryKey: ["transactionsTable"],

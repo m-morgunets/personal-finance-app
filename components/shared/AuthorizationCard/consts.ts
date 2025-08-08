@@ -1,4 +1,12 @@
-export const LINK = {
-  login: { href: "/signup", title: "Регистрация" },
-  signup: { href: "/login", title: "Авторизация" },
+export const TYPE_TO_DATA = {
+  login: {
+    title: "Войдите в свою учетную запись",
+    href: "/signup",
+    linkTitle: "Регистрация",
+  },
+  signup: {
+    title: "Зарегистрируйте учетную запись",
+    href: "/login",
+    linkTitle: "Авторизация",
+  },
 };

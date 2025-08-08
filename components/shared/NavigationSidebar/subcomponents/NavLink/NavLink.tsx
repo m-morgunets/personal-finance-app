@@ -14,7 +14,7 @@ export const NavLink = ({ href, title, Icon }: MenuItem) => {
       href={href}
       key={href}
       className={cn(
-        "cursor-pointer text-[16px] font-bold flex items-center pl-[35px] border-l-4 gap-[20px] w-[275px] h-[55px] rounded-r-[15px]",
+        "cursor-pointer text-[16px] font-bold flex items-center pl-[35px] border-l-4 gap-[20px] w-[245px] h-[55px] rounded-r-[15px]",
         isActive
           ? "bg-[#f8f5f0] text-[#201f24] border-[#237d79]"
           : "border-transparent"
