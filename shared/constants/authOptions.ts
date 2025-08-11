@@ -108,7 +108,7 @@ export const authOptions: AuthOptions = {
         await prisma.user.create({
           data: {
             email: user.email,
-            fullName: user.name || "User #" + user.id,
+            fullName: user.name || "User",
             password: hashSync(user.id.toString(), 10),
             provider: account?.provider,
             providerId: account?.providerAccountId,

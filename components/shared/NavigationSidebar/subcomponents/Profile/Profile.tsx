@@ -22,12 +22,16 @@ export const Profile = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <div className="flex items-center gap-4 hover:bg-white/10 p-2 rounded-md cursor-pointer">
+        <div className="flex items-center gap-4 hover:bg-white/10 p-2 rounded-md cursor-pointer w-full overflow-hidden text-ellipsis">
           <User size={30} />
           <div className="flex items-center gap-2">
             <div>
-              <div>{session?.user.name}</div>
-              <div className="text-xs">{session?.user.email}</div>
+              <div className="text-ellipsis max-w-[155px] overflow-hidden">
+                {session?.user.name ?? "Загрузка..."}
+              </div>
+              <div className="text-xs text-ellipsis max-w-[155px] overflow-hidden">
+                {session?.user.email ?? "Загрузка..."}
+              </div>
             </div>
             <ChevronsUpDown size={18} />
           </div>
