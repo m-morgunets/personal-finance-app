@@ -4,16 +4,14 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function GET() {
   try {
-    // Получаем сессию
     const session = await getUserSession();
     if (!session) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    // Получаем транзакции
     const transactions = await prisma.transactions.findMany({
       where: { userId: session.id },
-      orderBy: { date: "desc" }, // последние сверху
+      orderBy: { date: "desc" },
     });
 
     return NextResponse.json(transactions);
@@ -28,20 +26,17 @@ export async function GET() {
 
 export async function POST(req: NextRequest) {
   try {
-    // Получаем сессию
     const session = await getUserSession();
     if (!session) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    // Достаём данные из тела запроса
     const { title, category, amount, date } = await req.json();
 
     if (!title || !category || typeof amount !== "number") {
       return NextResponse.json({ error: "Invalid input" }, { status: 400 });
     }
 
-    // Создаём транзакцию
     const transaction = await prisma.transactions.create({
       data: {
         title,

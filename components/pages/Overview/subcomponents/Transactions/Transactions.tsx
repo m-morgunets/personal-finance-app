@@ -1,13 +1,17 @@
+'use client';
+
 import { formatDate } from "@/shared/utils/formatDate";
 import Image from "next/image";
 import { Box } from "../Box";
-import { CATEGORIES, DATA } from "@/components/pages/Transactions/constants";
+import { CATEGORIES } from "@/components/pages/Transactions/constants";
+import { useRecentTransactions } from "@/shared/api/transactions";
 
 export const Transactions = () => {
+  const { data } = useRecentTransactions();
   return (
     <Box title="Операции" linkText="Посмотреть всё" linkTo={"/transactions"}>
       <div className="mt-5">
-        {DATA.slice(0, 5).map((item, index) => {
+        {data.map((item, index) => {
           const colorAmount = item.amount > 0 ? "#4b7a74" : "#201f24";
           const category = CATEGORIES.find((cat) => cat.key === item.category);
 
@@ -22,7 +26,7 @@ export const Transactions = () => {
                   style={{ backgroundColor: category?.color }}
                 >
                   <Image
-                    src={category?.iconSrc ?? ''}
+                    src={category?.iconSrc ?? ""}
                     alt={category?.name ?? ""}
                     width={20}
                     height={20}

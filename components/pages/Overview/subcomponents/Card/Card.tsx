@@ -6,7 +6,9 @@ export const Card = ({ title, value, className }: CardProps) => {
   return (
     <div className={cn("w-full bg-white p-6 rounded-2xl", className)}>
       <div className="text-[14px]">{title}</div>
-      <div className="text-[32px] font-bold">₽{value.toFixed(2)}</div>
+      <div className="text-[32px] font-bold">
+        {value ? `₽${value?.toFixed(2)}` : "Загрузка..."}
+      </div>
     </div>
   );
 };

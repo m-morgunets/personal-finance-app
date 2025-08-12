@@ -20,6 +20,26 @@ export function useTransactionsTable() {
   };
 }
 
+async function fetchRecentTransactions(): Promise<TransactionDto[]> {
+  const { data } = await axios.get<TransactionDto[]>(
+    "/api/transactions/recent"
+  );
+  return data;
+}
+
+export function useRecentTransactions() {
+  const response = useQuery({
+    queryKey: ["recentTransactions"],
+    queryFn: () => fetchRecentTransactions(),
+  });
+
+  return {
+    isLoading: response.isLoading,
+    isError: response.isError,
+    data: response.data ?? [],
+  };
+}
+
 export function useCreateTransaction() {
   const queryClient = useQueryClient();
 
