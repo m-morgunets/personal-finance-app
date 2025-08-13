@@ -1,4 +1,4 @@
-import { OverviewBalanceDto } from "./overview.schemas";
+import { OverviewBalanceDto, TopExpensesDto } from "./overview.schemas";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 
@@ -17,5 +17,23 @@ export function useOverviewBalance() {
     isLoading: response.isLoading,
     isError: response.isError,
     data: response.data,
+  };
+}
+
+async function fetchTopExpenses(): Promise<TopExpensesDto[]> {
+  const { data } = await axios.get<TopExpensesDto[]>("/api/top-expenses");
+  return data;
+}
+
+export function useTopExpenses() {
+  const response = useQuery({
+    queryKey: ["topExpenses"],
+    queryFn: () => fetchTopExpenses(),
+  });
+
+  return {
+    isLoading: response.isLoading,
+    isError: response.isError,
+    data: response.data ?? [],
   };
 }

@@ -3,3 +3,8 @@ export interface OverviewBalanceDto {
   expenses: number;
   balance: number;
 }
+
+export interface TopExpensesDto {
+  category: string;
+  amount: number;
+}

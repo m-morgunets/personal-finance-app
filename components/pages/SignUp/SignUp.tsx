@@ -42,6 +42,7 @@ export const SignUp = () => {
         callbackUrl: "/overview",
       });
     } catch (error) {
+      console.log(error);
       return toast.error("Неверный E-Mail или пароль", {
         icon: "❌",
       });
