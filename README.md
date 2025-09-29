@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Финансовый трекер на Next.js
 
-## Getting Started
+**Финансовый трекер** — это веб-приложение для личного учета финансов, позволяющее пользователю отслеживать свои доходы, расходы и бюджет в удобном интерфейсе. Проект создан с использованием Next.js, Prisma и NextAuth для аутентификации.
 
-First, run the development server:
+🔗 Ссылки
+
+- Деплой на Vercel: https://personal-finance-app-vert.vercel.app/
+- Репозиторий GitHub: https://github.com/m-morgunets/personal-finance-app
+
+## 📌 Особенности проекта
+
+- Регистрация и авторизация пользователей через NextAuth.
+- Добавление и управление транзакциями (доходы и расходы).
+- Категоризация и фильтрация транзакций.
+- Ведение бюджета и накоплений.
+- Современный интерфейс на React/Next.js.
+- График создан с помощью Recharts.
+- Backend на Next.js с Prisma для работы с базой данных (PostgreSQL).
+- Развернут на Vercel.
+
+## 🛠 Технологии
+
+- [Next.js](https://nextjs.org/)
+- [React](https://reactjs.org/)
+- [Prisma](https://www.prisma.io/)
+- [NextAuth.js](https://next-auth.js.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Vercel](https://vercel.com/) (деплой)
+
+## 🚀 Функционал
+
+1. **Главная страница** — обзорная статичная страница.
+2. **Обзорная страница** — обзор финансов пользователя.
+3. **Операции** — добавление, редактирование и удаление транзакций.
+4. **Бюджеты** — настройка и отслеживание бюджета по категориям.
+5. **Авторизация** — регистрация и вход через email/github/google.
+
+## 💾 Установка и запуск локально
+
+1. Установить зависимости:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+  npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Настроить переменные окружения в .env
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+  DATABASE_URL=""
+  NEXTAUTH_SECRET=""
+  GOOGLE_CLIENT_ID=""
+  GOOGLE_CLIENT_SECRET=""
+  GITHUB_ID=""
+  GITHUB_SECRET=""
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. Применить миграции Prisma:
 
-## Learn More
+```bash
+  npx prisma migrate dev --name init
+```
 
-To learn more about Next.js, take a look at the following resources:
+4. Запустить проект:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+  npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+📄 Лицензия
+MIT License © 2025
